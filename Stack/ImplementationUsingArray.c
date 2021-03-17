@@ -1,7 +1,7 @@
 #include <stdio.h>
-int stack[100],top=-1;
+int top=-1;
 
-void push(int N,int x)
+void push(int N, int x, int stack[])
 {
     if(top>=N-1)
     {
@@ -14,7 +14,7 @@ void push(int N,int x)
     }
 }
 
-void pop()
+void pop(int stack[])
 {
     int i;
     if(top<=-1)
@@ -29,7 +29,7 @@ void pop()
     
 }
 
-void peek()
+void peek(int stack[])
 {
     if(top<=-1)
     {
@@ -42,11 +42,11 @@ void peek()
     
 }
 
-void display()
+void display(int stack[])
 {
     if(top>=0)
     {
-        printf("The elements in STACK \n");
+        printf("The elements in STACK(Printed from Top to Bottom) \n");
         for(int i=top; i>=0; i--)
             printf("%d ",stack[i]);
     }
@@ -71,19 +71,19 @@ int main()
             int x;
             printf("Enter value to be pushed into stack\n");
             scanf("%d",&x);
-            push(N,x);
+            push(N,x,stack);
         }
         if(op==2)
         {
-            pop();
+            pop(stack);
         }
         if(op==3)
         {
-            peek();
+            peek(stack);
         }
         if(op==4)
         {
-            display();
+            display(stack);
         }
         if(op==5)
         {
